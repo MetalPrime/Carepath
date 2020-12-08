@@ -49,7 +49,7 @@
             app:srcCompat="@drawable/group_74" />
 
         <EditText
-            android:id="@+id/inputNombreLogin"
+            android:id="@+id/inputCorreoLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -57,7 +57,7 @@
             android:layout_marginEnd="40dp"
             android:background="@drawable/custom_input"
             android:ems="10"
-            android:hint="Nombre"
+            android:hint="Correo"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
             android:layout_marginEnd="40dp"
             android:background="@drawable/custom_input"
             android:ems="10"
@@ -76,7 +75,7 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputNombreLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/inputCorreoLogin" />
 
         <Button
             android:id="@+id/botonIniciarsesionLogin"
