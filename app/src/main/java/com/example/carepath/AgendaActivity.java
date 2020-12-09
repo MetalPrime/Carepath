@@ -3,6 +3,7 @@ package com.example.carepath;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,13 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class AgendaActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private FirebaseDatabase database;
+    private FirebaseAuth auth;
 
     private ImageButton botonHomePage;
     private ImageButton botonAgenda;
@@ -31,20 +38,63 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
 
-        listaActividades = findViewById(R.id.listaAgenda);
-        textDate = findViewById(R.id.textDate);
+        if (auth.getCurrentUser() == null) fueraDeLaPAgina();
+        else {
 
-        botonHomePage = findViewById(R.id.botonHome);
-        botonAgenda = findViewById(R.id.botonAgenda);
-        botonVisitante = findViewById(R.id.botonVisita);
-        botonNotificacion = findViewById(R.id.botonNotificaciones);
-        agregar = findViewById(R.id.aggAgendaBtn);
-        backAgenda = findViewById(R.id.backAgendaBtn);
-        botonNN = findViewById(R.id.botonNN);
+            database = FirebaseDatabase.getInstance();
+            auth = FirebaseAuth.getInstance();
+
+            listaActividades = findViewById(R.id.listaAgenda);
+            textDate = findViewById(R.id.textDate);
+
+            botonHomePage = findViewById(R.id.botonHome);
+            botonAgenda = findViewById(R.id.botonAgenda);
+            botonVisitante = findViewById(R.id.botonVisita);
+            botonNotificacion = findViewById(R.id.botonNotificaciones);
+            agregar = findViewById(R.id.aggAgendaBtn);
+            backAgenda = findViewById(R.id.backAgendaBtn);
+            botonNN = findViewById(R.id.botonNN);
+
+            botonHomePage.setOnClickListener(this);
+            botonAgenda.setOnClickListener(this);
+            botonVisitante.setOnClickListener(this);
+            botonNotificacion.setOnClickListener(this);
+            agregar.setOnClickListener(this);
+            backAgenda.setOnClickListener(this);
+        }
     }
 
     @Override
     public void onClick(View view) {
+
+        switch (view.getId()){
+
+            case R.id.backAgendaBtn:
+                break;
+
+            case R.id.aggAgendaBtn:
+                break;
+
+            case R.id.botonHome:
+                break;
+
+            case R.id.botonAgenda:
+                break;
+
+            case R.id.botonVisita:
+                break;
+
+            case R.id.botonNotificaciones:
+                break;
+        }
+
+    }
+
+    private void fueraDeLaPAgina() {
+
+        Intent l = new Intent(this,LoginRegistroActivity.class);
+        startActivity(l);
+        finish();
 
     }
 }
