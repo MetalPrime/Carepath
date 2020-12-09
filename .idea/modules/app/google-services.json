@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "117197958415",
+    "firebase_url": "https://carepath-805ff-default-rtdb.firebaseio.com",
+    "project_id": "carepath-805ff",
+    "storage_bucket": "carepath-805ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117197958415:android:5021afc13da11d46d3227a",
+        "android_client_info": {
+          "package_name": "com.example.carepath"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117197958415-4mntaq1krmdc5f6sel5i9kaufat5nhqd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.carepath",
+            "certificate_hash": "6030fe2e0824ebc0192e4f4e9fd8dded3dd8adf1"
+          }
+        },
+        {
+          "client_id": "117197958415-5agiia33mg772vh6t07kukrqskv6l866.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnTuO2xYSKTN0u39GLExycfwLefT-Nwxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117197958415-5agiia33mg772vh6t07kukrqskv6l866.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

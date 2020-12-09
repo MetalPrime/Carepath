@@ -15,13 +15,14 @@
         <activity android:name=".AgendaActivity" />
         <activity android:name=".RegistroActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".LoginRegistroActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginRegistroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
         </activity>
     </application>
 

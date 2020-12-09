@@ -2,14 +2,22 @@ package com.example.carepath;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
-    private EditText nombre;
-    private EditText contraseña;
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private FirebaseAuth auth;
+
+    private EditText correo;
+    private EditText password;
 
     private Button login;
 
@@ -18,10 +26,42 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        nombre = findViewById(R.id.inputCorreoLogin);
-        contraseña = findViewById(R.id.inputContrasenaLogin);
+        auth = FirebaseAuth.getInstance();
+
+        correo = findViewById(R.id.inputCorreoLogin);
+        password = findViewById(R.id.inputContrasenaLogin);
 
         login = findViewById(R.id.botonIniciarsesionLogin);
 
+        login.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+
+            case R.id.botonIniciarsesionLogin:
+
+                auth.signInWithEmailAndPassword(correo.getText().toString().trim(), password.getText().toString().trim())
+                        .addOnCompleteListener(
+                                task -> {
+                                    if(task.isSuccessful()){
+
+                                        Intent m = new Intent(this, MainActivity.class);
+                                        startActivity(m);
+                                        finish();
+
+                                    }else{
+
+                                        Toast.makeText(this,task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
+                                    }
+                                }
+                        );
+
+                break;
+        }
     }
 }
