@@ -44,17 +44,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.botonIniciarsesionLogin:
 
+                //confirmacion del perfil de autenticacion
                 auth.signInWithEmailAndPassword(correo.getText().toString().trim(), password.getText().toString().trim())
                         .addOnCompleteListener(
                                 task -> {
                                     if(task.isSuccessful()){
 
+                                        //cambio de pantalla
                                         Intent m = new Intent(this, MainActivity.class);
                                         startActivity(m);
                                         finish();
 
                                     }else{
 
+                                        //generador de errores
                                         Toast.makeText(this,task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
                                     }
