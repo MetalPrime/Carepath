@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
+    //botones individuales
     private ConstraintLayout botonAgendaHome;
     private ConstraintLayout botonVisitanteHome;
     private ConstraintLayout botonNotificacionHome;

@@ -20,15 +20,18 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
+    //botones de barra guia
     private ImageButton botonHomePage;
     private ImageButton botonAgenda;
     private ImageButton botonVisitante;
     private ImageButton botonNotificacion;
-    private ImageButton agregar;
 
+    //botones individuales
+    private ImageButton agregar;
     private Button backAgenda;
     private Button botonNN;
 
+    //informacion a mostrar
     private ListView listaActividades;
     private TextView textDate;
 

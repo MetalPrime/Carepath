@@ -18,14 +18,17 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
+    //botones de barra guia
     private ImageButton botonHomePage;
     private ImageButton botonAgenda;
     private ImageButton botonVisitante;
     private ImageButton botonNotificacion;
     private ImageButton agregar;
 
+    //botones individuales
     private Button backVisitante;
 
+    //informacion a mostrar
     private ListView listaVisitantes;
 
     @SuppressLint("WrongViewCast")
@@ -41,6 +44,7 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
             auth = FirebaseAuth.getInstance();
 
             listaVisitantes = findViewById(R.id.listaVisitantes);
+
 
             botonHomePage = findViewById(R.id.botonHome);
             botonAgenda = findViewById(R.id.botonAgenda);
