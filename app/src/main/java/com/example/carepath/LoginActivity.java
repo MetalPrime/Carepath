@@ -1,5 +1,7 @@
 package com.example.carepath;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,11 +12,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth auth;
+    private FirebaseDatabase database;
 
     private EditText correo;
     private EditText password;
@@ -27,6 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         correo = findViewById(R.id.inputCorreoLogin);
         password = findViewById(R.id.inputContrasenaLogin);
@@ -50,10 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 task -> {
                                     if(task.isSuccessful()){
 
-                                        //cambio de pantalla
-                                        Intent m = new Intent(this, MainActivity.class);
-                                        startActivity(m);
-                                        finish();
+                                        verificacionInquilino();
 
                                     }else{
 
@@ -66,5 +70,55 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 break;
         }
+    }
+
+    public void verificacionInquilino(){
+
+        String id = auth.getCurrentUser().getUid();
+
+        database.getReference().child("inquilinos").child(id).addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        Inquilino inquilino = snapshot.getValue(Inquilino.class);
+
+                        if (inquilino.getEstado().equals("inquilino")){
+
+                            //cambio de pantalla
+                            Intent m = new Intent(getBaseContext(),MainActivity.class);
+                            startActivity(m);
+                            finish();
+
+                        }else {
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext())
+                                    .setTitle("Problema de logeo")
+                                    .setMessage("¿Estás seguro que eres inquilino?")
+                                    .setPositiveButton("Si", (dialog, idD) -> {
+
+                                        auth.signOut();
+                                        dialog.dismiss();
+
+                                    })
+                                    .setNegativeButton("No", (dialog, idD) -> {
+
+                                        auth.signOut();
+                                        Intent m = new Intent(getBaseContext(), LoginRegistroActivity.class);
+                                        startActivity(m);
+                                        finish();
+
+                                    });
+                            builder.show();
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                }
+        );
+
     }
 }

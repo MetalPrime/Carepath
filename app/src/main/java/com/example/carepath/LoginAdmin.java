@@ -104,7 +104,7 @@ public class LoginAdmin extends AppCompatActivity implements View.OnClickListene
                                     .setNegativeButton("No", (dialog, idD) -> {
 
                                         auth.signOut();
-                                        Intent m = new Intent(getBaseContext(), LoginRegistroActivity.class);
+                                        Intent m = new Intent(getBaseContext(), LogeoRegistroAdmin.class);
                                         startActivity(m);
                                         finish();
 
