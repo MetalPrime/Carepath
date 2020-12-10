@@ -86,13 +86,13 @@ public class LoginAdmin extends AppCompatActivity implements View.OnClickListene
                         if (administrador.getEstado().equals("administrador")){
 
                             //cambio de pantalla
-                            Intent m = new Intent(this, HomePageAdmin.class);
+                            Intent m = new Intent(getBaseContext(),HomePageAdmin.class);
                             startActivity(m);
                             finish();
 
                         }else {
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                           AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext())
                                     .setTitle("Problema de logeo")
                                     .setMessage("¿Estás seguro que eres administrador?")
                                     .setPositiveButton("Si", (dialog, idD) -> {
@@ -104,8 +104,7 @@ public class LoginAdmin extends AppCompatActivity implements View.OnClickListene
                                     .setNegativeButton("No", (dialog, idD) -> {
 
                                         auth.signOut();
-
-                                        Intent m = new Intent(this, LoginRegistroActivity.class);
+                                        Intent m = new Intent(getBaseContext(), LoginRegistroActivity.class);
                                         startActivity(m);
                                         finish();
 
