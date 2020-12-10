@@ -18,14 +18,20 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
+<<<<<<< HEAD
+=======
     //botones de barra guia
+>>>>>>> 828737c4b9beea30799130564767a007a1c43cdc
     private ImageButton botonHomePage;
     private ImageButton botonAgenda;
     private ImageButton botonVisitante;
     private ImageButton botonNotificacion;
     private ImageButton agregar;
 
+<<<<<<< HEAD
+=======
     //botones individuales
+>>>>>>> 828737c4b9beea30799130564767a007a1c43cdc
     private Button backVisitante;
 
     //informacion a mostrar
@@ -45,6 +51,15 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
 
             listaVisitantes = findViewById(R.id.listaVisitantes);
 
+<<<<<<< HEAD
+            botonHomePage = findViewById(R.id.botonHome);
+            botonAgenda = findViewById(R.id.botonAgenda);
+            botonVisitante = findViewById(R.id.botonVisita);
+            botonNotificacion = findViewById(R.id.botonNotificaciones);
+            agregar = findViewById(R.id.aggVisitanteBtn);
+            backVisitante = findViewById(R.id.backAgendaBtn);
+
+=======
 
             botonHomePage = findViewById(R.id.botonHome);
             botonAgenda = findViewById(R.id.botonAgenda);
@@ -53,6 +68,7 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
             agregar = findViewById(R.id.aggVisitanteBtn);
             backVisitante = findViewById(R.id.backAgendaBtn);
 
+>>>>>>> 828737c4b9beea30799130564767a007a1c43cdc
             botonHomePage.setOnClickListener(this);
             botonAgenda.setOnClickListener(this);
             botonVisitante.setOnClickListener(this);

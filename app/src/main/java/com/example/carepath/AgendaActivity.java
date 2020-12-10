@@ -20,7 +20,10 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
+<<<<<<< HEAD
+=======
     //botones de barra guia
+>>>>>>> 828737c4b9beea30799130564767a007a1c43cdc
     private ImageButton botonHomePage;
     private ImageButton botonAgenda;
     private ImageButton botonVisitante;
@@ -46,10 +49,17 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
 
             database = FirebaseDatabase.getInstance();
             auth = FirebaseAuth.getInstance();
+<<<<<<< HEAD
 
             listaActividades = findViewById(R.id.listaAgenda);
             textDate = findViewById(R.id.textDate);
 
+=======
+
+            listaActividades = findViewById(R.id.listaAgenda);
+            textDate = findViewById(R.id.textDate);
+
+>>>>>>> 828737c4b9beea30799130564767a007a1c43cdc
             botonHomePage = findViewById(R.id.botonHome);
             botonAgenda = findViewById(R.id.botonAgenda);
             botonVisitante = findViewById(R.id.botonVisita);
