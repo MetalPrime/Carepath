@@ -18,13 +18,19 @@ public class NotificacionesActivity extends AppCompatActivity implements View.On
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
+<<<<<<< HEAD
+=======
+    //botones de barra guia
+>>>>>>> 828737c4b9beea30799130564767a007a1c43cdc
     private ImageButton botonHomePage;
     private ImageButton botonAgenda;
     private ImageButton botonVisitante;
     private ImageButton botonNotificacion;
 
+    //botones individuales
     private Button backNotificacion;
 
+    //informacion a mostrar
     private ListView listaNotificaciones;
 
     @SuppressLint("WrongViewCast")

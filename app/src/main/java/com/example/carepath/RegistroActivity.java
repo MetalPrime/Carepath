@@ -64,6 +64,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.botonRegistrarRegistro:
 
+                //creacion de usuario para autenticacion
                 if(password.getText().toString().trim().equals(confPassword.getText().toString().trim())){
 
                     auth.createUserWithEmailAndPassword(correo.getText().toString().trim(), password.getText().toString().trim())
@@ -71,10 +72,12 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
                                     task -> {
 
+                                        //validacion de creaacion del usuario para crear el objeto en firebase
                                         if(task.isSuccessful()){
 
                                             String id = auth.getCurrentUser().getUid();
 
+                                            //creacion de objeto para el hilo inquilinos de firebase
                                             Inquilino inquilino = new Inquilino(
 
                                                     id,
@@ -87,12 +90,14 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                                                     nombreUsuario.getText().toString().trim()
 
                                             );
+                                            //envio de de informacion a firebase
                                             database.getReference().child("inquilinos").child(id).setValue(inquilino)
                                                     .addOnCompleteListener(
 
                                                             taskDb -> {
                                                                 if(taskDb.isSuccessful()){
 
+                                                                    //cambio de pantalla
                                                                     Intent c = new Intent(this,MainActivity.class);
                                                                     startActivity(c);
                                                                     finish();
@@ -102,6 +107,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                                                     );
                                         }else{
 
+                                            //generador de errores
                                             Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
                                         }
