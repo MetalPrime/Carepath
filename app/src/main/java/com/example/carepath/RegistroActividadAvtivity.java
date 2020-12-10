@@ -18,10 +18,6 @@ public class RegistroActividadAvtivity extends AppCompatActivity implements View
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
-<<<<<<< HEAD
-=======
-    //botones de barra guia
->>>>>>> 828737c4b9beea30799130564767a007a1c43cdc
     private ImageButton botonHomePage;
     private ImageButton botonAgenda;
     private ImageButton botonVisitante;
