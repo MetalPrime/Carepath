@@ -54,6 +54,13 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
             agregar = findViewById(R.id.aggAgendaBtn);
             backAgenda = findViewById(R.id.backAgendaBtn);
             botonNN = findViewById(R.id.botonNN);
+
+            botonHomePage.setOnClickListener(this);
+            botonAgenda.setOnClickListener(this);
+            botonVisitante.setOnClickListener(this);
+            botonNotificacion.setOnClickListener(this);
+            agregar.setOnClickListener(this);
+            backAgenda.setOnClickListener(this);
         }
     }
 
