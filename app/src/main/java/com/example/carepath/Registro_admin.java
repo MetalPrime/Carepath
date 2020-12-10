@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RegistroActivity extends AppCompatActivity implements View.OnClickListener {
+public class Registro_admin extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseDatabase database;
     private FirebaseAuth auth;
@@ -21,11 +21,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     private EditText apellido;
     private EditText numero;
     private EditText correo;
-    private EditText tipoIdentificacion;
     private EditText numeroIdentificacion;
-    private EditText torre;
-    private EditText apartamento;
-    private EditText nombreUsuario;
     private EditText password;
     private EditText confPassword;
 
@@ -34,24 +30,20 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_registro_admin);
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
-        registrar = findViewById(R.id.botonRegistrarRegistro);
+        registrar = findViewById(R.id.botonRegistrarAdmin);
 
-        nombre = findViewById(R.id.inputNombreRegistro);
-        apellido = findViewById(R.id.inputApellidoRegistro);
-        numero = findViewById(R.id.inputCelularRegistro);
-        correo = findViewById(R.id.inputCorreoRegistro);
-        tipoIdentificacion = findViewById(R.id.inputTipoIdRegistro);
-        numeroIdentificacion = findViewById(R.id.inputNumeroIdRegistro);
-        torre = findViewById(R.id.inputTorreRegistro);
-        apartamento = findViewById(R.id.inputApartamentoRegistro);
-        nombreUsuario = findViewById(R.id.inputNombreUsuarioRegistro);
-        password = findViewById(R.id.inputContrasenaRegistro);
-        confPassword = findViewById(R.id.inputConfirmarContrasenaRegistro);
+        nombre = findViewById(R.id.inputNombreAdmin);
+        apellido = findViewById(R.id.inputApellidoAdmin);
+        numero = findViewById(R.id.inputCelularAdmin);
+        correo = findViewById(R.id.inputCorreoAdmin);
+        numeroIdentificacion = findViewById(R.id.inputCedulaAdmin);
+        password = findViewById(R.id.inputContrasenaAdmin);
+        confPassword = findViewById(R.id.inputConfirmarContrasenaAdmin);
 
         registrar.setOnClickListener(this);
 
@@ -62,7 +54,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
         switch (view.getId()){
 
-            case R.id.botonRegistrarRegistro:
+            case R.id.botonRegistrarAdmin:
 
                 //creacion de usuario para autenticacion
                 if(password.getText().toString().trim().equals(confPassword.getText().toString().trim())){
@@ -72,36 +64,32 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
                                     task -> {
 
-                                        //validacion de creaacion del usuario para crear el objeto en firebase
+                                        //validacion de creacion del usuario para crear el objeto en firebase
                                         if(task.isSuccessful()){
 
                                             String id = auth.getCurrentUser().getUid();
-                                            String estado = "inquilino";
+                                            String estado = "administrador";
 
-                                            //creacion de objeto para el hilo inquilinos de firebase
-                                            Inquilino inquilino = new Inquilino(
+                                            //creacion de objeto para el hilo administradores de firebase
+                                            Administrador administrador = new Administrador(
 
                                                     id,
                                                     nombre.getText().toString()+ " " + apellido.getText().toString(),
                                                     numero.getText().toString().trim(),
                                                     estado,
-                                                    tipoIdentificacion.getText().toString().trim(),
-                                                    numeroIdentificacion.getText().toString().trim(),
-                                                    torre.getText().toString().trim(),
-                                                    apartamento.getText().toString().trim(),
-                                                    nombreUsuario.getText().toString().trim()
+                                                    numeroIdentificacion.getText().toString().trim()
 
                                             );
                                             //envio de de informacion a firebase
-                                            database.getReference().child("inquilinos").child(id).setValue(inquilino)
+                                            database.getReference().child("administradores").child(id).setValue(administrador)
                                                     .addOnCompleteListener(
 
                                                             taskDb -> {
                                                                 if(taskDb.isSuccessful()){
 
                                                                     //cambio de pantalla
-                                                                    Intent c = new Intent(this,MainActivity.class);
-                                                                    startActivity(c);
+                                                                    Intent h = new Intent(this,HomePageAdmin.class);
+                                                                    startActivity(h);
                                                                     finish();
 
                                                                 }

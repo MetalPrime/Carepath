@@ -5,6 +5,7 @@ public class Inquilino {
     private String id;
     private String nombre;
     private String numero;
+    private String estado;
     private String tipoIdentificacion;
     private String identificacion;
     private String torre;
@@ -14,10 +15,11 @@ public class Inquilino {
     public Inquilino() {
     }
 
-    public Inquilino(String id, String nombre, String numero, String tipoIdentificacion, String identificacion, String torre, String departamento, String userName) {
+    public Inquilino(String id, String nombre, String numero, String estado, String tipoIdentificacion, String identificacion, String torre, String departamento, String userName) {
         this.id = id;
         this.nombre = nombre;
         this.numero = numero;
+        this.estado = estado;
         this.tipoIdentificacion = tipoIdentificacion;
         this.identificacion = identificacion;
         this.torre = torre;
@@ -87,6 +89,14 @@ public class Inquilino {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }
 
