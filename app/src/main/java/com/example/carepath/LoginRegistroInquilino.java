@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class LoginRegistroActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginRegistroInquilino extends AppCompatActivity implements View.OnClickListener {
 
     private Button loginSeleccion;
     private Button registroSeleccion;
@@ -36,7 +36,7 @@ public class LoginRegistroActivity extends AppCompatActivity implements View.OnC
 
             case R.id.botonLoginLoginRegistro:
 
-                Intent l = new Intent(this,LoginActivity.class);
+                Intent l = new Intent(this, LoginInquilino.class);
                 startActivity(l);
                 finish();
 
@@ -44,7 +44,7 @@ public class LoginRegistroActivity extends AppCompatActivity implements View.OnC
 
             case R.id.botonRegistroLoginRegistro:
 
-                Intent r = new Intent(this,RegistroActivity.class);
+                Intent r = new Intent(this, RegistroInquilino.class);
                 startActivity(r);
                 finish();
 

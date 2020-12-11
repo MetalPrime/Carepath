@@ -52,7 +52,7 @@ public class LogeoRegistroAdmin extends AppCompatActivity implements View.OnClic
 
             case R.id.cambioAAdmin:
 
-                Intent i = new Intent(this,LoginRegistroActivity.class);
+                Intent i = new Intent(this, LoginRegistroInquilino.class);
                 startActivity(i);
                 finish();
 

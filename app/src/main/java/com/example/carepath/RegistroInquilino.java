@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RegistroActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegistroInquilino extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseDatabase database;
     private FirebaseAuth auth;

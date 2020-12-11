@@ -23,9 +23,9 @@
         <activity android:name=".NotificacionesActivity" />
         <activity android:name=".VisitanteActivity" />
         <activity android:name=".AgendaActivity" />
-        <activity android:name=".RegistroActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".LoginRegistroActivity">
+        <activity android:name=".RegistroInquilino" />
+        <activity android:name=".LoginInquilino" />
+        <activity android:name=".LoginRegistroInquilino">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

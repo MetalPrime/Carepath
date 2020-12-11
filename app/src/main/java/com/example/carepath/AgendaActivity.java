@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -86,7 +85,7 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
 
     private void fueraDeLaPAgina() {
 
-        Intent l = new Intent(this,LoginRegistroActivity.class);
+        Intent l = new Intent(this, LoginRegistroInquilino.class);
         startActivity(l);
         finish();
 

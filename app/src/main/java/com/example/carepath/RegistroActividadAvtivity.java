@@ -97,7 +97,7 @@ public class RegistroActividadAvtivity extends AppCompatActivity implements View
 
     private void fueraDeLaPAgina() {
 
-        Intent l = new Intent(this,LoginRegistroActivity.class);
+        Intent l = new Intent(this, LoginRegistroInquilino.class);
         startActivity(l);
         finish();
 

@@ -88,7 +88,7 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
 
     private void fueraDeLaPAgina() {
 
-        Intent l = new Intent(this,LoginRegistroActivity.class);
+        Intent l = new Intent(this, LoginRegistroInquilino.class);
         startActivity(l);
         finish();
 

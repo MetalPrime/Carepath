@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginInquilino extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth auth;
     private FirebaseDatabase database;
@@ -75,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void verificacionInquilino(){
 
         String id = auth.getCurrentUser().getUid();
-
+        Log.e(">>>",id);
         database.getReference().child("inquilinos").child(id).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
@@ -104,7 +105,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     .setNegativeButton("No", (dialog, idD) -> {
 
                                         auth.signOut();
-                                        Intent m = new Intent(getBaseContext(), LoginRegistroActivity.class);
+                                        Intent m = new Intent(getBaseContext(), LoginRegistroInquilino.class);
                                         startActivity(m);
                                         finish();
 
