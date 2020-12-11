@@ -64,12 +64,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.agendaBtn:
+                Intent i = new Intent(this,AgendaActivity.class);
+                startActivity(i);
+                finish();
                 break;
 
             case R.id.visitanteBtn:
+                Intent j = new Intent(this,VisitanteActivity.class);
+                startActivity(j);
+                finish();
                 break;
 
             case R.id.notificacionBtn:
+                Intent k = new Intent(this,NotificacionesActivity.class);
+                startActivity(k);
+                finish();
                 break;
         }
     }

@@ -35,12 +35,11 @@ public class NotificacionesActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notificaciones);
 
-        if (auth.getCurrentUser() == null) fueraDeLaPAgina();
-        else {
 
-            database = FirebaseDatabase.getInstance();
-            auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
 
+        if (auth.getCurrentUser() != null) {
             listaNotificaciones = findViewById(R.id.listaNotificaciones);
 
             botonHomePage = findViewById(R.id.botonHome);
@@ -54,7 +53,9 @@ public class NotificacionesActivity extends AppCompatActivity implements View.On
             botonVisitante.setOnClickListener(this);
             botonNotificacion.setOnClickListener(this);
             backNotificacion.setOnClickListener(this);
-
+        }
+        else {
+            fueraDeLaPAgina();
         }
     }
 

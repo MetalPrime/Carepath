@@ -35,12 +35,10 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visitante);
 
-        if (auth.getCurrentUser() == null) fueraDeLaPAgina();
-        else {
+        database = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
 
-            database = FirebaseDatabase.getInstance();
-            auth = FirebaseAuth.getInstance();
-
+        if (auth.getCurrentUser() != null) {
             listaVisitantes = findViewById(R.id.listaVisitantes);
 
             botonHomePage = findViewById(R.id.botonHome);
@@ -56,6 +54,9 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
             botonNotificacion.setOnClickListener(this);
             agregar.setOnClickListener(this);
             backVisitante.setOnClickListener(this);
+        }
+        else {
+            fueraDeLaPAgina();
 
         }
     }

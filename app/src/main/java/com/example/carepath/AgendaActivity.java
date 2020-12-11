@@ -39,11 +39,10 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
 
-        if (auth.getCurrentUser() == null) fueraDeLaPAgina();
-        else {
+        database = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
 
-            database = FirebaseDatabase.getInstance();
-            auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser() != null) {
 
             listaActividades = findViewById(R.id.listaAgenda);
             textDate = findViewById(R.id.textDate);
@@ -54,6 +53,11 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
             botonNotificacion.setOnClickListener(this);
             agregar.setOnClickListener(this);
             backAgenda.setOnClickListener(this);
+        }
+        else {
+            fueraDeLaPAgina();
+
+
         }
     }
 
