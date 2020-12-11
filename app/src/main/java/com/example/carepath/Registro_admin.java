@@ -98,7 +98,7 @@ public class Registro_admin extends AppCompatActivity implements View.OnClickLis
                                         }else{
 
                                             //generador de errores
-                                            Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                            //Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
                                         }
                                     }
