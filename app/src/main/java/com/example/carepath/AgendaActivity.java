@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,13 +20,13 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
-    private ImageButton botonHomePage;
-    private ImageButton botonAgenda;
-    private ImageButton botonVisitante;
-    private ImageButton botonNotificacion;
+    private ImageView botonHomePage;
+    private ImageView botonAgenda;
+    private ImageView botonVisitante;
+    private ImageView botonNotificacion;
 
     //botones individuales
-    private ImageButton agregar;
+    private ImageView agregar;
     private Button backAgenda;
     private Button botonNN;
 
@@ -46,6 +47,13 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
 
             listaActividades = findViewById(R.id.listaAgenda);
             textDate = findViewById(R.id.textDate);
+
+            botonHomePage = findViewById(R.id.botonHome);
+            botonAgenda = findViewById(R.id.botonAgenda);
+            botonVisitante = findViewById(R.id.botonVisita);
+            botonNotificacion = findViewById(R.id.botonNotificaciones);
+            agregar = findViewById(R.id.aggAgendaBtn);
+            backAgenda = findViewById(R.id.backAgendaBtn);
 
             botonHomePage.setOnClickListener(this);
             botonAgenda.setOnClickListener(this);

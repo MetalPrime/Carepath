@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,10 +19,10 @@ public class NotificacionesActivity extends AppCompatActivity implements View.On
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
-    private ImageButton botonHomePage;
-    private ImageButton botonAgenda;
-    private ImageButton botonVisitante;
-    private ImageButton botonNotificacion;
+    private ImageView botonHomePage;
+    private ImageView botonAgenda;
+    private ImageView botonVisitante;
+    private ImageView botonNotificacion;
 
     //botones individuales
     private Button backNotificacion;

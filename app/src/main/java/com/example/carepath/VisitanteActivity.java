@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,11 +19,11 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
-    private ImageButton botonHomePage;
-    private ImageButton botonAgenda;
-    private ImageButton botonVisitante;
-    private ImageButton botonNotificacion;
-    private ImageButton agregar;
+    private ImageView botonHomePage;
+    private ImageView botonAgenda;
+    private ImageView botonVisitante;
+    private ImageView botonNotificacion;
+    private ImageView agregar;
 
     private Button backVisitante;
 
