@@ -68,9 +68,13 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
         switch (view.getId()){
 
             case R.id.backVisitanteBtn:
+                Intent i = new Intent(this,MainActivity.class);
+                startActivity(i);
+                finish();
                 break;
 
             case R.id.aggVisitanteBtn:
+
                 break;
 
             case R.id.botonHome:

@@ -75,9 +75,15 @@ public class AgendaActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()){
 
             case R.id.backAgendaBtn:
+                Intent i = new Intent(this,MainActivity.class);
+                startActivity(i);
+                finish();
                 break;
 
             case R.id.aggAgendaBtn:
+                Intent j = new Intent(this,RegistroActividadAvtivity.class);
+                startActivity(j);
+                finish();
                 break;
 
             case R.id.botonHome:

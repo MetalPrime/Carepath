@@ -66,6 +66,9 @@ public class NotificacionesActivity extends AppCompatActivity implements View.On
         switch (view.getId()){
 
             case R.id.backNotificacionBtn:
+                Intent i = new Intent(this,MainActivity.class);
+                startActivity(i);
+                finish();
                 break;
 
             case R.id.botonHome:
