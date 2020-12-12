@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -18,10 +19,10 @@ public class RegistroActividadAvtivity extends AppCompatActivity implements View
     private FirebaseDatabase database;
     private FirebaseAuth auth;
 
-    private ImageButton botonHomePage;
-    private ImageButton botonAgenda;
-    private ImageButton botonVisitante;
-    private ImageButton botonNotificacion;
+    private ImageView botonHomePage;
+    private ImageView botonAgenda;
+    private ImageView botonVisitante;
+    private ImageView botonNotificacion;
 
     //botones individuales
     private Button backRegistroActividad;
@@ -40,11 +41,10 @@ public class RegistroActividadAvtivity extends AppCompatActivity implements View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_actividad_avtivity);
 
-        if (auth.getCurrentUser() == null) fueraDeLaPAgina();
-        else {
+        database = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
 
-            database = FirebaseDatabase.getInstance();
-            auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser() != null) {
 
             botonHomePage = findViewById(R.id.botonHome);
             botonAgenda = findViewById(R.id.botonAgenda);
@@ -65,7 +65,9 @@ public class RegistroActividadAvtivity extends AppCompatActivity implements View
             botonNotificacion.setOnClickListener(this);
             aggActividad.setOnClickListener(this);
             backRegistroActividad.setOnClickListener(this);
-
+        }
+        else {
+            fueraDeLaPAgina();
         }
     }
 
@@ -75,6 +77,9 @@ public class RegistroActividadAvtivity extends AppCompatActivity implements View
         switch (view.getId()){
 
             case R.id.backRegistroAvticidadBtn:
+                Intent i = new Intent(this,AgendaActivity.class);
+                startActivity(i);
+                finish();
                 break;
 
             case R.id.aggSalida:
