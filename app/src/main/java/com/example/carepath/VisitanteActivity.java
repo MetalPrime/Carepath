@@ -74,7 +74,9 @@ public class VisitanteActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.aggVisitanteBtn:
-
+                Intent j = new Intent(this,RegistroVisitaActivity.class);
+                startActivity(j);
+                finish();
                 break;
 
             case R.id.botonHome:
